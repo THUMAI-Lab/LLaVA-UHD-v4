@@ -1,6 +1,9 @@
 # LLaVA-UHD v4: What Makes Efficient Visual Encoding in MLLMs?
 
-📄 <a href="paper/LLaVA_UHD_v4__What_Makes_Efficient_Visual_Encoding_in_MLLMs.pdf">Paper</a>
+<p align="center">
+<a href="https://arxiv.org/abs/2605.08985">[📄arXiv]</a>
+<a href="https://huggingface.co/papers/2605.08985">[🤗HF Paper]</a>
+</p>
 
 This repository hosts the code and model weights of **LLaVA-UHD v4**, a multimodal large language model (MLLM) designed for efficient high-resolution visual encoding. LLaVA-UHD v4 rethinks the conventional global-encoding-plus-post-ViT-compression paradigm and introduces a slice-based encoding framework with intra-ViT early compression. By moving token reduction into shallow ViT layers, our model substantially reduces the computational cost of visual encoding while preserving fine-grained perception ability.
 
@@ -26,3 +29,17 @@ The figure above highlights the core efficiency–performance trade-off of LLaVA
 ![Fig1](./figures/architecture.png)
 
 The figure above illustrates the overall design of LLaVA-UHD v4. Unlike previous high-resolution MLLMs that encode the full image globally and compress visual tokens only after the ViT, LLaVA-UHD v4 adopts slice-based encoding and moves part of the compression directly into the vision encoder. The intra-ViT compressor first performs local window attention to aggregate neighboring visual information, then applies pixel-unshuffle and MLP-based fusion to reduce the token count. As a result, the remaining ViT layers operate on a much shorter visual sequence, substantially lowering the cost of high-resolution visual encoding while maintaining strong fine-grained perception.
+
+## Citation
+
+```bibtex
+@misc{fang2026llavauhdv4makesefficient,
+      title={LLaVA-UHD v4: What Makes Efficient Visual Encoding in MLLMs?}, 
+      author={Kechen Fang and Yihua Qin and Chongyi Wang and Wenshuo Ma and Tianyu Yu and Yuan Yao},
+      year={2026},
+      eprint={2605.08985},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2605.08985}, 
+}
+```
