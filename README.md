@@ -47,6 +47,43 @@ The figure above highlights the core efficiency–performance trade-off of LLaVA
 
 Unlike previous high-resolution MLLMs that encode the full image globally and compress visual tokens only after the ViT, LLaVA-UHD v4 adopts **slice-based encoding** and moves part of the compression directly into the vision encoder. The intra-ViT compressor first performs local window attention to aggregate neighboring visual information, then applies pixel-unshuffle and MLP-based fusion to reduce the token count. As a result, the remaining ViT layers operate on a much shorter visual sequence, substantially lowering the cost of high-resolution visual encoding while maintaining strong fine-grained perception.
 
+## 🧪 Evaluation
+
+### 1) Prepare environment
+
+```bash
+cd vlmevalkit
+# Use your own virtual environment path
+source /path/to/venv/bin/activate
+pip install -r requirements.txt
+```
+
+If you want `run_eval.sh` to auto-activate your environment, set:
+
+```bash
+export VENV_PATH=/path/to/venv
+```
+
+Note: some benchmarks require an LLM judge; set `OPENAI_API_KEY` before evaluation.  
+If needed, you can also set `OPENAI_API_BASE` (or `OPENAI_API_KEY_JUDGE` / `OPENAI_API_BASE_JUDGE`).
+
+### 2) Run evaluation
+
+```bash
+cd vlmevalkit
+
+export MODEL_PATH=/path/to/model_or_checkpoint
+export MODEL_NAME=MiniCPM_4_V
+export DATASETS="MMMU_DEV_VAL MathVista_MINI MMBench_DEV_EN_V11 MMBench_DEV_CN_V11 MMStar HallusionBench AI2D_TEST OCRBench"
+export SAVE_NAME=llava_uhd_v4_eval
+
+# Optional settings
+export SAVE_ROOT=/path/to/save/root
+export GPU_NUM=8
+
+bash ./scripts/run_eval.sh "$MODEL_PATH" "$MODEL_NAME" "$DATASETS" "$SAVE_NAME"
+```
+
 ## 🎈 Citation
 
 If you find LLaVA-UHD v4 helpful, please cite us.

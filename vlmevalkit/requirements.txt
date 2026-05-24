@@ -1,0 +1,26 @@
+decord
+gradio
+huggingface_hub
+imageio
+matplotlib==3.9.1
+moviepy==1.0.3
+numpy>=1.23.4
+omegaconf
+openai==1.3.5
+opencv-python==4.8.0.76
+pandas
+portalocker
+protobuf
+python-dotenv
+requests
+rich
+sentencepiece
+setuptools
+tiktoken
+timeout-decorator
+# torch>=2.0.1
+# tqdm
+# transformers
+#typing_extensions==4.7.1
+typing-extensions>=4.8.0
+jsonlines
