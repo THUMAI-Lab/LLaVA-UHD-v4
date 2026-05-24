@@ -12,6 +12,7 @@
     <a href="#-introduction">📖 Introduction</a> •
     <a href="#-performance">📊 Performance</a> •
     <a href="#-architecture">🏗️ Architecture</a> •
+    <a href="#-evaluation">🧪 Evaluation</a> •
     <a href="#-citation">🎈 Citation</a>
   </p>
 </div>
