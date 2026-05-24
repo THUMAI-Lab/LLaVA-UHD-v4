@@ -2,7 +2,7 @@
 
 # LLaVA-UHD v4: What Makes Efficient Visual Encoding in MLLMs?
 
-[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2605.08985) [![Github](https://img.shields.io/badge/LLaVA--UHD%20v4-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/THUMAI-Lab/LLaVA-UHD-v4) [![HF Paper](https://img.shields.io/badge/HF--Paper-%23FFD14D?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/papers/2605.08985)
+[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2605.08985) [![Github](https://img.shields.io/badge/LLaVA--UHD%20v4-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/THUMAI-Lab/LLaVA-UHD-v4) [![HF Paper](https://img.shields.io/badge/HF--Paper-%23FFD14D?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/papers/2605.08985) [![Checkpoint (Ours)](https://img.shields.io/badge/HF--Checkpoint%20(Ours)-%23FFD14D?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/PhoenixGS/LLaVA-UHD-v4-8M) [![Checkpoint (Post-ViT)](https://img.shields.io/badge/HF--Checkpoint%20(Post--ViT)-%23FFD14D?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/PhoenixGS/LLaVA-UHD-v4-8M-Baseline)
 
 </div>
 
@@ -18,7 +18,7 @@
 
 ## 🎉 News
 
-- **[Coming Soon]** Evaluation code and model checkpoints will be released before **May 24**.
+- **[2026, May 24]** Evaluation code and model checkpoints are available.
 - **[Coming Soon]** Training code will be released before **June 7**.
 
 ## 📖 Introduction
