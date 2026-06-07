@@ -12,6 +12,7 @@
     <a href="#-introduction">📖 Introduction</a> •
     <a href="#-performance">📊 Performance</a> •
     <a href="#-architecture">🏗️ Architecture</a> •
+    <a href="#-training">🏋️ Training</a> •
     <a href="#-evaluation">🧪 Evaluation</a> •
     <a href="#-citation">🎈 Citation</a>
   </p>
@@ -20,7 +21,7 @@
 ## 🎉 News
 
 - **[2026, May 24]** Evaluation code and model checkpoints are available.
-- **[Coming Soon]** Training code will be released before **June 7**.
+- **[2026, June 7]** Training code is now available in [`train/`](./train).
 
 ## 📖 Introduction
 
@@ -47,6 +48,35 @@ The figure above highlights the core efficiency–performance trade-off of LLaVA
 </p>
 
 Unlike previous high-resolution MLLMs that encode the full image globally and compress visual tokens only after the ViT, LLaVA-UHD v4 adopts **slice-based encoding** and moves part of the compression directly into the vision encoder. The intra-ViT compressor first performs local window attention to aggregate neighboring visual information, then applies pixel-unshuffle and MLP-based fusion to reduce the token count. As a result, the remaining ViT layers operate on a much shorter visual sequence, substantially lowering the cost of high-resolution visual encoding while maintaining strong fine-grained perception.
+
+## 🏋️ Training
+
+Training code is available in [`train/`](./train). It implements the slice-based encoding with intra-ViT early compression and supports the full pipeline: **stage 1 → stage 2 → stage 3 → stage 4**.
+
+### 1) Prepare environment
+
+```bash
+cd train
+# Use your own virtual environment path
+source /path/to/venv/bin/activate
+pip install -r requirements.txt
+```
+
+### 2) Run training
+
+```bash
+cd train
+
+# Full four-stage pipeline (stage 1 → stage 2 → stage 3 → stage 4)
+PREFIX=my_exp bash model_vlu_minicpm/model_tunnel/run_tunnel.sh \
+  --model_type uhd_mlp_insert_window_attention_ViTmlp_4_4 --insert_layer_id 6
+
+# Or run a single-stage SFT
+PREFIX=my_exp bash model_vlu_minicpm/model_tunnel/run_sft.sh \
+  --model_type uhd_mlp_insert_window_attention_ViTmlp_4_4 --insert_layer_id 6
+```
+
+Configure data/model paths (e.g. `LLM_PATH`, `VOCABS_PATH`, `VPM_PATH`, `STAGE1_FILE`, `STAGE4_FILE`) via environment variables or by editing the `/path/to/...` placeholders in the scripts. See the scripts under [`train/model_vlu_minicpm/model_tunnel/`](./train/model_vlu_minicpm/model_tunnel) for stage arguments, checkpoint resuming, and override options.
 
 ## 🧪 Evaluation
 

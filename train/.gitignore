@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs and runtime outputs
+*.log
+logs/
+runs/
+tensorboard/
+wandb/
+events.out.tfevents*
+
+# Training artifacts
+checkpoints/
+checkpoint*/
+outputs/
+output/
+results/
+*.ckpt
+*.pt
+*.pth
+*.safetensors
+
+# Dataset/cache artifacts
+data/
+datasets/
+cache/
+.cache/
+*.parquet
+*.pkl
+*.jsonl.tmp
+
+# Local config / secrets
+.env
+.env.*
+!.env.example
+credentials.json
+secrets.json
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
